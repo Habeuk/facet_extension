@@ -1,0 +1,6 @@
+facet_extension.settings_form:
+  title: Facet extension
+  description: Configure Facet extension.
+  parent: system.admin_config_system
+  route_name: facet_extension.settings_form
+  weight: 10

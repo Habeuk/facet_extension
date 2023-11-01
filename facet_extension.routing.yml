@@ -1,0 +1,7 @@
+facet_extension.settings_form:
+  path: '/admin/config/system/facet-extension'
+  defaults:
+    _title: 'Facet extension settings'
+    _form: 'Drupal\facet_extension\Form\SettingsForm'
+  requirements:
+    _permission: 'administer facet_extension configuration'
