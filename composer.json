@@ -11,6 +11,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-    	"drupal/facets": "^2.0"
+    	"drupal/facets": "^3.0@beta"
     }
 }
