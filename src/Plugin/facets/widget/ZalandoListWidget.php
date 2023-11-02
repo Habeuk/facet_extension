@@ -34,8 +34,8 @@ class ZalandoListWidget extends LinksWidget {
    *   Reference to build array. 
    */
   protected function appendWidgetLibrary(array &$build) {
-    $build['#attached']['library'][] = 'facets/drupal.facets.checkbox-widget';
-    $build['#attributes']['class'][] = 'js-facets-zalando-links';
+    $build['#attached']['library'][] = 'facet_extension/zalando_link_list';
+    $build['#attributes']['class'][] = 'facets-zalando-links';
   }
 
 
@@ -54,12 +54,7 @@ class ZalandoListWidget extends LinksWidget {
    * {@inheritdoc}
    */
   public function build(FacetInterface $facet) {
-    $build = parent::build($facet);
-    $build['#attributes']['class'][] = 'js-facets-radio-links';
-    $build['#attached']['drupalSettings']['facets']['radioWidget'][$facet->id()]['facet-default-radio-label'] = $this->getConfiguration()['default_option_label'];
-    $build['#attached']['library'][] = 'facets_widgets/state_radio_widget';
-    $build['#attached']['library'][] = 'facets/drupal.facets.general';
-    return $build;
+    return parent::build($facet);
   }
 
 }
