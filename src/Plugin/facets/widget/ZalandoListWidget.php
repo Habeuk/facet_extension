@@ -2,12 +2,12 @@
 
 namespace Drupal\facet_extension\Plugin\facets\widget;
 
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\facets\FacetInterface; 
-use Drupal\facets\Widget\WidgetPluginBase;
+use Drupal\facets\FacetInterface;
+use Drupal\facets\Plugin\facets\widget\LinksWidget;
+use Drupal\facets\Result\ResultInterface;
 
 /**
- * Facets state radio widget.
+ * Facets zalando link list widget.
  *
  * @FacetsWidget(
  *   id = "zalando_list",
@@ -15,7 +15,7 @@ use Drupal\facets\Widget\WidgetPluginBase;
  *   description = @Translation("A configurable widget that shows a list of links."),
  * )
  */
-class ZalandoListWidget extends WidgetPluginBase {
+class ZalandoListWidget extends LinksWidget {
 
   /**
    * {@inheritdoc}
@@ -31,11 +31,23 @@ class ZalandoListWidget extends WidgetPluginBase {
    * Appends widget library and relevant information for it to build array.
    *
    * @param array $build
-   *   Reference to build array.
+   *   Reference to build array. 
    */
   protected function appendWidgetLibrary(array &$build) {
     $build['#attached']['library'][] = 'facets/drupal.facets.checkbox-widget';
     $build['#attributes']['class'][] = 'js-facets-zalando-links';
+  }
+
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function buildListItems(FacetInterface $facet, ResultInterface $result) {
+    $items = parent::buildListItems($facet, $result);
+
+    $items['#attributes']['data-drupal-facet-widget-element-class'] = 'facets-link';
+
+    return $items;
   }
 
   /**
@@ -48,28 +60,6 @@ class ZalandoListWidget extends WidgetPluginBase {
     $build['#attached']['library'][] = 'facets_widgets/state_radio_widget';
     $build['#attached']['library'][] = 'facets/drupal.facets.general';
     return $build;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function buildConfigurationForm(array $form, FormStateInterface $form_state, FacetInterface $facet) {
-    $config = $this->getConfiguration();
-
-    $message = $this->t('To achieve the standard behavior of a list of radios, you need to enable the facet setting below <em>"Ensure that only one result can be displayed"</em>.');
-    $form['warning'] = [
-      '#markup' => '<div class="messages messages--warning">' . $message . '</div>',
-    ];
-
-    $form += parent::buildConfigurationForm($form, $form_state, $facet);
-
-    $form['default_option_label'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Default option label'),
-      '#default_value' => $config['default_option_label'],
-    ];
-
-    return $form;
   }
 
 }
