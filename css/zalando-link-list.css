@@ -22,3 +22,17 @@
   padding: 16px 16px 16px 0px;
   text-align: left;
 }
+
+.block-facet--zalando-list .title {
+  padding: 8px;
+  border: 1px solid black;
+  width: fit-content;
+}
+
+.block-facet--zalando-list .title::after {
+  content: "\2304";
+}
+
+.block-facet--zalando-list .title:hover {
+  border: 2px solid black;
+}

@@ -3,6 +3,8 @@ zalando_link_list:
   css:
     theme:
       css/zalando-link-list.css: {}
+  js:
+    js/zalando-link-list.js: {}
   dependencies:
     - facets/widget
 
