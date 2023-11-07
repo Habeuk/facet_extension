@@ -7,4 +7,7 @@ zalando_link_list:
     js/zalando-link-list.js: {}
   dependencies:
     - facets/widget
+    - core/drupal
+    - core/jquery
+    - core/once
 
