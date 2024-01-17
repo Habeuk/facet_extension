@@ -1,0 +1,106 @@
+.facets-zalando-links {
+  border: 1px solid black;
+  list-style: none;
+  color: inherit;
+  padding: 0px;
+  padding-left: 10px;
+  width: fit-content;
+  min-width: 300px;
+  display: none;
+  box-shadow: inset 0 0 0 1px black;
+  margin-bottom: 0px;
+}
+
+.facets-zalando-links a {
+  color: inherit;
+}
+
+.facets-zalando-links a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.facets-zalando-links .facet-item {
+  padding: 16px 16px 16px 0px;
+  text-align: left;
+  position: relative;
+}
+
+.facets-zalando-links .facet-item:not(:last-child)::after {
+  background-color: rgb(208, 209, 211);
+  position: absolute;
+  left: 0;
+  content: '';
+  top: 100%;
+  bottom: 0;
+  right: 1px;
+  height: 2px;
+}
+.facets-zalando-links .facet-item::before {
+  position: absolute;
+  left: -9px;
+  content: '';
+  top: 1px;
+  bottom: 0;
+  right: 1px;
+}
+.facets-zalando-links .facet-item:last-child::before {
+  bottom: 1px;
+}
+.facets-zalando-links .facet-item a {
+  position: relative;
+  z-index: 15;
+}
+
+.facets-zalando-links .facet-item:hover::before {
+  background: #efeff0;
+}
+
+.block-facet--zalando-list .title {
+  padding: 8px;
+  border: 1px solid black;
+  width: fit-content;
+  position: relative;
+  margin-bottom: 0px;
+  background-color: white;
+}
+
+.block-facet--zalando-list .title:hover {
+  box-shadow: inset 0 0 0 1px black;
+}
+.block-facet--zalando-list .title::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 1px;
+}
+
+.facets-widget-zalando_list {
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  top: calc(100% - 1px);
+  left: -1px;
+}
+
+.block-facet--zalando-list .title.zalando-list--active {
+  box-shadow: 0px -1px 0px 0px black, -1px 0px 0px 0px black, 1px 0px 0px 0px black;
+  z-index: 11;
+}
+
+#block-zalandolistforfacet {
+  margin-left: 100px;
+}
+
+.title.zalando-list--active::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  border: 0;
+  content: "";
+  height: 3px;
+  background: white;
+}
